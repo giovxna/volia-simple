@@ -66,9 +66,10 @@ sr.reveal(`.home-data, .home-img,
     interval: 200
 })
 
-function enviarPedido(produto) {
-    const mensagem = `Olá, bom dia! Quero comprar esse prato: ${produto}`;
+function enviarPedido(event, produto) {
+    event.preventDefault();
+    const mensagem = `Olá, tudo bem? Gostaria de pedir essa marmita: ${produto}`;
     const numeroWhatsapp = '5511930491258'; 
-    const url = `https://api.whatsapp.com/send/?phone=${numeroWhatsapp}&text=${encodeURIComponent(mensagem)}&type=phone_number&app_absent=0`;
+    const url = `https://api.whatsapp.com/send?phone=${numeroWhatsapp}&text=${encodeURIComponent(mensagem)}`;
     window.open(url, '_blank');
 }
